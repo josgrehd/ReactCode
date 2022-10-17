@@ -17,9 +17,9 @@ return(
 		<div className="container">
 
 		<Jumbotron
-			//Pasar parametros al el componente
+			//Pasar parametros al componente
 
-			tittle="Interactuando con linkedin.com"
+			tittle="Interactuando con REACT"
 			text="React te ayuda a crear interfaces de usuario interactivas de forma sencilla. 
 			Diseña vistas simples para cada estado en tu aplicación,
 			y React se encargará de actualizar y renderizar de manera eficiente los componentes correctos cuando los datos cambien."
@@ -29,7 +29,7 @@ return(
 		/>
 
 		<Card
-			//Pasar parametros al el componente
+			//Pasar parametros al componente
 
 			tittle="Imagen"
 			cardText="Es un hecho establecido hace demasiado tiempo que un lector se distraerá con
@@ -138,18 +138,20 @@ Jumbotron.propTypes={
 
 
 const Card = (props)=>{
+	//agrego array de objetos para un futuro agregar mas imagenes y hacer una funcion map
+	let imagenes =[{url: props.imgUrl , tittle :props.tittle , text : props.cardText, btnLink:props.btnLink, btnLabel:props.btnLabel}]
 	const repetir= ()=> {
 		//funcion para repetir la carta, se le da un width para q tenga una separacion entre las cartas
 		return(
 		<>
 		<div  className="card col-3 text-center ms-auto" style={{width: '23%'}}>
-			<img src={props.imgUrl} className="card-img-top"/>
+			<img src={imagenes[0].url} className="card-img-top"/>
 			<div  className="card-body">
-				<h3  className="card-title fw-bold">{props.tittle}</h3>
-				<p  className="card-text">{props.cardText}</p>
+				<h3  className="card-title fw-bold">{imagenes[0].tittle}</h3>
+				<p  className="card-text">{imagenes[0].text}</p>
 			</div>
 			<div className="bg-light">
-				<a href={props.btnLink} target="_blank" className="btn btn-primary">{props.btnLabel}</a>
+				<a href={imagenes[0].btnLink} target="_blank" className="btn btn-primary">{imagenes[0].btnLabel}</a>
 			</div>
 		</div>
 		</>
