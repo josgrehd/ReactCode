@@ -31,12 +31,34 @@ return(
 		<Card
 			//Pasar parametros al componente
 
-			tittle="Imagen"
+			tittle="Gatito"
 			cardText="Es un hecho establecido hace demasiado tiempo que un lector se distraerá con
 					el contenido del texto de un sitio mientras que mira su diseño"
 			btnLink="https://www.google.com/search?client=firefox-b-d&q=gatos"
 			btnLabel="Ir a buscar Gatos"
 			imgUrl= "https://cdn.onemars.net/sites/nutro_es_NkyIN_B9cV/image/20_1615982101979.jpeg"
+			//Pasar parametros imagen 2
+			tittle1="Perrito"
+			cardText1="Es un hecho establecido hace demasiado tiempo que un lector se distraerá con
+					el contenido del texto de un sitio mientras que mira su diseño"
+			btnLink1="https://www.google.com/search?client=firefox-b-d&q=perrito"
+			btnLabel1="Ir a buscar Perros"
+			imgUrl1= "https://assets.puzzlefactory.pl/puzzle/349/536/original.jpg"
+			//Pasar Parametros Imagen 3
+			tittle2="Ardillita"
+			cardText2="Es un hecho establecido hace demasiado tiempo que un lector se distraerá con
+					el contenido del texto de un sitio mientras que mira su diseño"
+			btnLink2="https://www.google.com/search?client=firefox-b-d&q=ardillita"
+			btnLabel2="Ir a buscar Ardillas"
+			imgUrl2= "https://blogs.elcolombiano.com/cienciaaldia/wp-content/uploads/2008/06/ardlla.jpg"
+			//Pasar Parametros imagen 4
+			tittle3="Pez"
+			cardText3="Es un hecho establecido hace demasiado tiempo que un lector se distraerá con
+					el contenido del texto de un sitio mientras que mira su diseño"
+			btnLink3="https://www.google.com/search?client=firefox-b-d&q=pez"
+			btnLabel3="Ir a buscar Peces"
+			imgUrl3= "https://www.anipedia.net/imagenes/pez-payaso.jpg"
+
 
 		/>
 
@@ -138,22 +160,31 @@ Jumbotron.propTypes={
 
 
 const Card = (props)=>{
-	//agrego array de objetos para un futuro agregar mas imagenes y hacer una funcion map
-	let imagenes =[{url: props.imgUrl , tittle :props.tittle , text : props.cardText, btnLink:props.btnLink, btnLabel:props.btnLabel}]
+	//agrego array de objetos para hacer una funcion map
+	let imagenes =
+	[{url: props.imgUrl , tittle :props.tittle , text : props.cardText, btnLink:props.btnLink, btnLabel:props.btnLabel},
+	 {url: props.imgUrl1 , tittle :props.tittle1 , text : props.cardText1, btnLink:props.btnLink1, btnLabel:props.btnLabel1},
+	 {url: props.imgUrl2 , tittle :props.tittle2 , text : props.cardText2, btnLink:props.btnLink2, btnLabel:props.btnLabel2},
+	 {url: props.imgUrl3 , tittle :props.tittle3 , text : props.cardText3, btnLink:props.btnLink3, btnLabel:props.btnLabel3}]
 	const repetir= ()=> {
 		//funcion para repetir la carta, se le da un width para q tenga una separacion entre las cartas
 		return(
 		<>
-		<div  className="card col-3 text-center ms-auto" style={{width: '23%'}}>
-			<img src={imagenes[0].url} className="card-img-top"/>
-			<div  className="card-body">
-				<h3  className="card-title fw-bold">{imagenes[0].tittle}</h3>
-				<p  className="card-text">{imagenes[0].text}</p>
+		{imagenes.map((element)=>{
+			return(
+				<div  className="card col-3 text-center ms-auto" style={{width: '23%'}}>
+				<img src={element.url} style={{width: '100%', height: '200px'}} className="card-img-top"/>
+				<div  className="card-body">
+					<h3  className="card-title fw-bold">{element.tittle}</h3>
+					<p  className="card-text">{element.text}</p>
+				</div>
+				<div className="bg-light">
+					<a href={element.btnLink} target="_blank" className="btn btn-primary">{element.btnLabel}</a>
+				</div>
 			</div>
-			<div className="bg-light">
-				<a href={imagenes[0].btnLink} target="_blank" className="btn btn-primary">{imagenes[0].btnLabel}</a>
-			</div>
-		</div>
+		)})
+		}
+
 		</>
 		);
 	};
@@ -161,9 +192,6 @@ const Card = (props)=>{
 		//llamando a la funcion repetir dentro de una div "row" para que todo este en una fila
 		<>
 		<div className="row mt-5">
-			{repetir()}
-			{repetir()}
-			{repetir()}
 			{repetir()}
 		</div>
 		</>
@@ -174,11 +202,27 @@ const Card = (props)=>{
 
 Card.propTypes ={
 	//patemetros de Card con el tipo de dato que recibe
+
 	tittle: PropType.string,
 	cardText:PropType.string,
 	btnLink: PropType.string,
 	btnLabel: PropType.string,
 	imgUrl: PropType.string,
+	tittle1: PropType.string,
+	cardText1:PropType.string,
+	btnLink1: PropType.string,
+	btnLabel1: PropType.string,
+	imgUrl1: PropType.string,
+	tittle2: PropType.string,
+	cardText2:PropType.string,
+	btnLink2: PropType.string,
+	btnLabel2: PropType.string,
+	imgUrl2: PropType.string,
+	tittle3: PropType.string,
+	cardText3:PropType.string,
+	btnLink3: PropType.string,
+	btnLabel3: PropType.string,
+	imgUrl3: PropType.string,
 }
 
 export default Home
