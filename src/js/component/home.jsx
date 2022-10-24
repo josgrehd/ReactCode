@@ -104,14 +104,6 @@ return(
 );
 };
 
-Navbar.propTypes={
-	//parametros props de Navbar con el tipo de dato que recibe
-	label1: PropType.string,
-	label2: PropType.string,
-	label3: PropType.string,
-	label4: PropType.string,
-	label5: PropType.string,
-}
 
 const Footer=(props)=>{
 	return(
@@ -128,10 +120,6 @@ const Footer=(props)=>{
 	);
 };
 
-Footer.propTypes={
-	//parametros props de Footer con el tipo de dato que recibe
-	text: PropType.string,
-}
 
  const Jumbotron=(props)=>{
 	return(
@@ -149,14 +137,6 @@ Footer.propTypes={
 		</>
 	);
 };
-
-Jumbotron.propTypes={
-	//parametros de Jumbotron con el tipo de dato que recibe
-	tittle: PropType.string,
-	text:PropType.string,
-	btnLink: PropType.string,
-	btnLabel: PropType.string,
-}
 
 
 const Card = (props)=>{
@@ -199,30 +179,5 @@ const Card = (props)=>{
 	
 	
 };
-
-Card.propTypes ={
-	//patemetros de Card con el tipo de dato que recibe
-
-	tittle: PropType.string,
-	cardText:PropType.string,
-	btnLink: PropType.string,
-	btnLabel: PropType.string,
-	imgUrl: PropType.string,
-	tittle1: PropType.string,
-	cardText1:PropType.string,
-	btnLink1: PropType.string,
-	btnLabel1: PropType.string,
-	imgUrl1: PropType.string,
-	tittle2: PropType.string,
-	cardText2:PropType.string,
-	btnLink2: PropType.string,
-	btnLabel2: PropType.string,
-	imgUrl2: PropType.string,
-	tittle3: PropType.string,
-	cardText3:PropType.string,
-	btnLink3: PropType.string,
-	btnLabel3: PropType.string,
-	imgUrl3: PropType.string,
-}
 
 export default Home
